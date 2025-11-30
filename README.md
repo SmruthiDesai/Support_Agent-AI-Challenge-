@@ -25,22 +25,43 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 **Note**: The system works without API keys using mock responses for demonstration.
 
-### 3. Start the Server
+### 3. Choose Your Interface
+
+#### Option A: Streamlit Demo (Recommended for Demos)
+```bash
+streamlit run streamlit_app.py
+```
+**Beautiful chat interface at: http://localhost:8501**
+- 💬 Interactive chat with agent visualization
+- 🤖 Real-time agent activity tracking
+- 🧠 Memory context viewer
+- 📋 Execution plan display
+
+#### Option B: FastAPI Server (For API Access)
 ```bash
 python main.py
 ```
-
-The API will be available at: http://localhost:8000  
-Interactive documentation at: http://localhost:8000/docs
+**API available at: http://localhost:8000**
+- 📖 Interactive docs at: http://localhost:8000/docs
+- 🔧 RESTful endpoints for integration
 
 ## 🧪 Test the System
 
-Run validation tests:
+### Streamlit Demo Interface
+```bash
+streamlit run streamlit_app.py
+```
+Then open http://localhost:8501 and try these demo questions:
+- "My laptop order #12345 won't turn on, I need help!"
+- "Compare TechBook Pro 15 vs TechBook Air 13"  
+- "What laptops do you have under $1000?"
+
+### System Validation
 ```bash
 python test_system.py
 ```
 
-Test the API endpoints:
+### API Testing
 ```bash
 # Run demo scenario
 curl -X GET http://localhost:8000/demo
@@ -108,6 +129,54 @@ Customer: *"My laptop order #12345 won't turn on, I need help!"*
 - `GET /agents` - List all available agents and capabilities
 - `GET /demo` - Run pre-scripted demo scenario
 - `POST /reset` - Clear all sessions for demo reset
+
+## 🔍 Debugging with Separate Terminals
+
+For debugging purposes, you can run the backend and Streamlit app in separate terminals to see console errors clearly:
+
+### Terminal 1 - Backend Server
+```bash
+# Navigate to project directory
+cd /Users/nikhilsanghi/Documents/scaler/Scaler\ Masterclass/DEMO_Agent_Master_Class/CC_Agent_MasterClass_demo
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Start FastAPI backend (watch for error messages here)
+python main.py
+```
+
+The backend will start on **http://localhost:8000** and show all API request logs, errors, and agent coordination details.
+
+### Terminal 2 - Streamlit Frontend
+```bash
+# Navigate to project directory (in a new terminal)
+cd /Users/nikhilsanghi/Documents/scaler/Scaler\ Masterclass/DEMO_Agent_Master_Class/CC_Agent_MasterClass_demo
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Start Streamlit app
+streamlit run streamlit_app.py --server.port 8501
+```
+
+The Streamlit app will start on **http://localhost:8501** and show frontend logs.
+
+### Quick Debug Commands
+```bash
+# Kill all existing processes if needed
+pkill -f "python main.py"
+pkill -f "streamlit run"
+
+# Check what's running on ports
+lsof -i :8000  # Backend port
+lsof -i :8501  # Streamlit port
+```
+
+### What to Watch For:
+- **Backend Terminal**: API errors, agent coordination logs, timeout issues
+- **Streamlit Terminal**: Frontend errors, communication issues with backend
+- **Browser Console**: JavaScript errors (F12 Developer Tools)
 
 ## 🔧 Troubleshooting
 

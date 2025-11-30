@@ -63,7 +63,8 @@ class Orchestrator(BaseAgent):
         try:
             start_time = datetime.now()
             
-            # Get session context
+            # Ensure session exists and get context
+            session_id, session = memory.get_or_create_session(session_id)
             context = memory.get_context_for_agents(session_id)
             
             # Create execution plan

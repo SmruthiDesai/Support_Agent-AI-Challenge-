@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from agents.orchestrator import orchestrator
@@ -259,16 +260,22 @@ async def list_sessions():
 # Error handlers
 @app.exception_handler(404)
 async def not_found_handler(request, exc):
-    return format_error_response(
-        "Endpoint not found",
-        "not_found"
+    return JSONResponse(
+        status_code=404,
+        content=format_error_response(
+            "Endpoint not found",
+            "not_found"
+        )
     )
 
 @app.exception_handler(500)
 async def internal_error_handler(request, exc):
-    return format_error_response(
-        "Internal server error",
-        "internal_error"
+    return JSONResponse(
+        status_code=500,
+        content=format_error_response(
+            "Internal server error",
+            "internal_error"
+        )
     )
 
 if __name__ == "__main__":

@@ -10,8 +10,8 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 # Model configurations
-OPENAI_MODEL = "gpt-4"
-GEMINI_MODEL = "gemini-pro"
+OPENAI_MODEL = "gpt-4o"
+GEMINI_MODEL = "gemini-2.0-flash"
 
 # System settings
 REQUEST_TIMEOUT = 30  # seconds
