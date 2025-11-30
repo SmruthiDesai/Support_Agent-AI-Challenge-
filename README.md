@@ -31,6 +31,10 @@ This AI Agent acts as a **Customer Support Assistant** that:
 Even **without API keys**, the system works using **mock data** (Orders, Products, Troubleshooting Knowledge Base).
 
 ---
+## 🧠 **2. Architecture Diagram**
+
+![Architecture Diagram](architecture.png)
+
 
 # 🧩 **3. Features**
 
