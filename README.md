@@ -10,6 +10,11 @@ This project demonstrates a **multi-agent customer care system** that handles re
 It is built using **Python, FastAPI, Streamlit, OpenAI/Gemini (optional), and a custom planner + memory system**.
 
 ---
+## 🔗 Live Demo
+
+Public Streamlit Demo (via ngrok):
+
+👉 https://unequine-roman-downward.ngrok-free.dev
 
 # 🌟 **1. Overview**
 
