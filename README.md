@@ -33,7 +33,7 @@ Even **without API keys**, the system works using **mock data** (Orders, Product
 ---
 ## 🧠 **2. Architecture Diagram**
 
-![Architecture Diagram](architecture.png)
+![Architecture Diagram](Architecture.png)
 
 
 # 🧩 **3. Features**
