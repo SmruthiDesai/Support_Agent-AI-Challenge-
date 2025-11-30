@@ -16,6 +16,10 @@ Public Streamlit Demo (via ngrok):
 
 👉 https://unequine-roman-downward.ngrok-free.dev
 
+⚠️ NOTE:
+This demo link works only when my Streamlit app is running on my local system.
+If the link is offline, please run the project locally using the instructions below.
+
 # 🌟 **1. Overview**
 
 This AI Agent acts as a **Customer Support Assistant** that:
